@@ -12,6 +12,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    solution = Solution()
+    solution = Solution(input_file_path="input")
+    example = Solution("example")
+    print(f"Part one example: {example.part_one()}")
     print(f"Part one: {solution.part_one()}")
+    print(f"Part two example: {example.part_two()}")
     print(f"Part two: {solution.part_two()}")
