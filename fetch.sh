@@ -3,7 +3,7 @@
 set -e
 
 year="2024"
-day_of_month="$(date +%d)"
+day_of_month="$(date +%-d)"
 url="https://adventofcode.com/${year}/day/${day_of_month}/input"
 dir="day${day_of_month}"
 base="templates/base.py"
