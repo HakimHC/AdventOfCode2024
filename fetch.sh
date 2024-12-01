@@ -22,6 +22,6 @@ curl \
   "$url"
 
 cp "${base}" "${dir}/main.py"
-touch "${dir}/test"
+touch "${dir}/example"
 
 echo "Ready for day ${day_of_month}. Let's go"
