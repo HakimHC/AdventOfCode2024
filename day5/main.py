@@ -41,13 +41,27 @@ class Solution:
         return sum([update[len(update) // 2] for update in good_updates])
 
     def part_two(self):
-        pass
+        bad_updates = []
+        for update in self.updates:
+            correct_numbers = [self.is_number_in_order(i, update) for i in range(len(update))]
+            if not all(correct_numbers):
+                bad_updates.append(update)
+
+        for update in bad_updates:
+            i = 0
+            while i < len(update):
+                if not self.is_number_in_order(i, update):
+                    update[i], update[i - 1] = update[i - 1], update[i]
+                    i -= 2
+                i += 1
+        return sum([update[len(update) // 2] for update in bad_updates])
+
 
 
 if __name__ == "__main__":
-    # solution = Solution(input_file_path="input")
+    solution = Solution(input_file_path="input")
     example = Solution(input_file_path="example")
     print(f"Part one example: {example.part_one()}")
-    # print(f"Part one: {solution.part_one()}")
-    # print(f"Part two example: {example.part_two()}")
-    # print(f"Part two: {solution.part_two()}")
+    print(f"Part one: {solution.part_one()}")
+    print(f"Part two example: {example.part_two()}")
+    print(f"Part two: {solution.part_two()}")
